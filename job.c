@@ -1,17 +1,18 @@
 #include <stdio.h> 
-#include <stdlib.h> 
+#include <stdlib.h>
+#include <unistd.h>
 #include <sys/types.h> 
 #include <sys/wait.h> 
-#include <unistd.h>
 
-char name[8];
 
-void jobisDone(){
+char name[7];
+
+void jobisFinish(){
 	printf("Job Is Done\n");
 }
 
 int main(void) {
-	for (int i = 0; i < 4; i++) {
+	for (int i = 5; i < 9; i++) {
 		pid_t pid = fork();
 		
 		if(pid == 0){			
@@ -25,6 +26,6 @@ int main(void) {
 			exit(0);
 		}
 	}
-	jobisDone();
+	jobisFinish();
 	exit (0);
 }
